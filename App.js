@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+
+import MainScreen from './screens/MainScreen';
+import ListScreen from './screens/ListScreen';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [appStart, setAppStart] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	function StartApp() {
+		setAppStart(true);
+	}
+
+	let screen = <MainScreen onStartButton={StartApp} />;
+
+	if (appStart) {
+		screen = <ListScreen />;
+	}
+
+	return <>{screen}</>;
+}
