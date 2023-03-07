@@ -6,4 +6,6 @@ export const Routes = {
   NEARME_SCREEN: 'NearMeScreen',
   ALERT_SCREEN: 'AlertScreen',
   MY_SCREEN: 'MyScreen',
+  DETAIL_ITEM_SCREEN: 'DetailItemScreen',
+  NEW_ITEM_SCREEN: 'NewItemScreen',
 };
